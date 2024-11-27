@@ -1,15 +1,28 @@
 'use client'
 
-import { Grape, Home, PersonStanding } from "lucide-react";
+import { Bell, Home, MoreHorizontal, PersonStanding } from "lucide-react";
 import { SidebarDesktop } from "./sidebar-desktop";
+import { SidebarItems } from "@/types";
+import SidebarButton from './sidebar-button';
 
-const sidebarItems = {
+const sidebarItems: SidebarItems = {
     links: [
         { label: 'Home', href: "/", icon: Home },
-        { label: 'About', href: "/about", icon: Grape },
-        { label: 'Contact', href: "/contact", icon: PersonStanding }
+        { label: 'Notifications', href: '/item/notifications', icon: Bell },
 
-    ]
+        { label: 'Contact', href: "/item/contact", icon: PersonStanding }
+
+    ],
+    extras: (
+        <div className="flex flex-col gap-2">
+            <SidebarButton icon={MoreHorizontal} className="w-full">More
+
+            </SidebarButton>
+            <SidebarButton className="w-full justify-center text-white" variant='default'>Tweet
+
+</SidebarButton>
+        </div>
+    )
 
 }
 
